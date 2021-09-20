@@ -1,0 +1,729 @@
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\def\mydoctitle{Mesh Communication for Checksums}
+\def\myshorttitle{Mesh Communication for Checksums}
+\def\mydocdesc{LaTeX Template}
+\def\mydockeys{LaTeX, Template, Formatting, Typesetting}
+
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\documentclass[10pt]{article} % [titlepage]
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Essential
+
+\usepackage[T1]{fontenc}
+\usepackage[
+	tracking = true,
+	kerning = true,
+	spacing = true,
+	factor = 1100,
+	]{microtype}
+\usepackage{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Fonts
+
+% Use LM
+\usepackage{mlmodern} % Should use Century Schoolbook in ChemDraw to match
+% \usepackage{lmodern}
+
+% Use Times
+% \usepackage[defaultsups,trueslanted]{newtxtext}
+% \usepackage[smallerops]{newtxmath}
+
+% Use Minion
+% \usepackage[minionint,lf]{MinionPro}
+
+% Use Libertine
+% \usepackage{libertine}
+% \usepackage[libertine]{newtxmath}
+
+% Use New Century
+% \usepackage{fouriernc}
+
+% Use Charter
+% \usepackage{XCharter}
+% \usepackage[xcharter]{newtxmath} 
+
+% Use Baskerville
+% \usepackage{Baskervaldx}
+% \usepackage[baskervaldx]{newtxmath} 
+
+% Use Garamond
+% \usepackage[lf]{ebgaramond}
+% \usepackage[ebgaramond]{newtxmath} 
+
+% Use int/sum from mtpro
+
+	\begin{comment}
+	\DeclareFontFamily{U}{mtt}{}
+		\DeclareFontShape{U}{mtt}{m}{up}{<->mt2exa}{}
+	\DeclareSymbolFont{splgreek}{U}{mtt}{m}{up}
+		\SetSymbolFont{splgreek}{normal}{U}{mtt}{m}{up}
+			\DeclareMathSymbol{\splsum}{\mathop}{splgreek}{"50}
+			\let\sum\splsum
+			\DeclareMathSymbol{\intop}{\mathop}{splgreek}{"52}
+	\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Sans Serif
+
+% Use Myriad
+% \usepackage[lf]{MyriadPro}
+%	\renewcommand{\familydefault}{\sfdefault}
+
+% Use Biolinum
+% \usepackage{biolinum} % looks nice with Minion
+
+% Use Iwona
+% \renewcommand{\sfdefault}{iwona}
+
+% Use Cabin
+\usepackage{cabin} % can add [sfdefault]
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% XeLaTeX - use with %!TEX TS-program = xelatex
+
+% \usepackage{xltxtra}
+
+% \setromanfont{Equity Text A}
+% \setsansfont{Concourse T4}
+% \newfontfamily\sanscaps{Concourse C4}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Additional Functionality
+
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+% \usepackage{upgreek} % use with mlmodern
+% \usepackage{textgreek} % use with non-mlmodern fonts, [artemisia] for tx fonts
+% \usepackage[cal=boondoxo,calscaled=1.1]{mathalpha} % see mathalpha docs for more options
+%	\newcommand{\emf}{\mathcal{E}} 
+% \usepackage{graphicx}
+% \usepackage{parskip}
+% \usepackage[all]{nowidow}
+% \usepackage[normalem]{ulem} % provides \uline and others for section headings
+% \usepackage{subtext} % allows $\Delta G_[pol]$, declare after infobox
+% \usepackage{physics} % \bra{\phi}\ket{\psi} - see docs for more
+\usepackage[dvipsnames]{xcolor}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Nice spacing for caps - try with cabin or iwona fonts in head/foot/sections
+
+\usepackage{soul}
+\usepackage{textcase}
+\DeclareRobustCommand{\spacedallcaps}[1]{\textls[220]{\MakeTextUppercase{\sffamily #1}}}
+\DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textls[80]{\MakeTextLowercase{\scshape\sffamily #1}}}
+% \addfontfeature{LetterSpace=8.0} % use this instead with XeLaTeX
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Customize Margins % Give 60-90 chars (including spaces) per line, or between 2-3 alphabets
+                    % abcdefghijklmnopqrstuvwxyz
+
+\def\mymargins{0.8in} 
+	\usepackage[top=\mymargins, bottom=1.2in, left=\mymargins, right=\mymargins]{geometry}  
+%	\usepackage[left=\mymargins, right=\mymargins]{geometry}  
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Adjust Linespacing and French spacing 
+
+ \usepackage{setspace}
+	\setstretch{1.2}
+	% \doublespacing
+	% \onehalfspacing
+	\frenchspacing
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Better Footnotes
+
+\begin{comment}
+\usepackage[bottom,hang]{footmisc}
+	\setlength\footnotemargin{10pt}
+	\interfootnotelinepenalty=10000
+	\setlength{\skip\footins}{0.5cm}
+\end{comment}
+	% \renewcommand{\thefootnote}{\textit{\roman{footnote}}}
+	% \counterwithout{footnote}{chapter} % don't reset footnote counter per chapter
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Better Tables
+
+\begin{comment}
+\usepackage{booktabs}
+	\setlength\heavyrulewidth{0.20ex}
+	\setlength\cmidrulewidth{0.15ex}
+	\setlength\lightrulewidth{0.1ex}
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Better Captions
+
+\begin{comment}
+\usepackage[font=normalsize,labelfont={bf}]{caption}
+	\captionsetup[table]{aboveskip=3pt}
+	\captionsetup[figure]{skip=3pt}
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Customize Sections
+
+\usepackage{titlesec} 
+% \usepackage[small,compact]{titlesec} % [small,sf,bf,compact]
+% \usepackage[explicit]{titlesec} % [explicit] allows #1 in final arg
+	% Serif
+	\begin{comment}
+	\titleformat{\section}{\large\bfseries}{\thetitle}{0.75em}{}
+	\titleformat{\subsection}{\bfseries}{\thetitle}{0.75em}{}
+	\titleformat{\subsubsection}{\bfseries}{\thesubsubsection}{0.75em}{}
+	\end{comment}
+	% Serif small
+	% \begin{comment}
+	\titleformat{\section}{\bfseries}{\thetitle}{0.75em}{}[\vspace*{-.5em}]
+	\titleformat{\subsection}{\bfseries}{\thetitle}{0.75em}{}[\vspace*{-.5em}]
+	\titleformat{\subsubsection}{\bfseries}{\thesubsubsection}{0.75em}{}[\vspace*{-.5em}]
+	% \end{comment}	
+	% Sans Serif
+	\begin{comment}
+	\titleformat{\section}{\large\sffamily\bfseries}{\thetitle}{0.75em}{}
+	\titleformat{\subsection}{\sffamily\bfseries}{\thetitle}{0.75em}{}
+	\titleformat{\subsubsection}{\sffamily\bfseries}{\thesubsubsection}{0.75em}{}
+	\renewcommand{\abstractname}{\large\sffamily\bfseries Abstract}
+	\end{comment}
+	% Centered Section
+	\begin{comment}
+	\renewcommand{\thesection}{\Roman{section}}
+	\titleformat{\section}[block]{\filcenter\scshape}{\thetitle.}{0.5em}{}
+	\titleformat{\subsection}{\bfseries}{\thesubsection.}{.5em}{} 
+	\titleformat{\subsubsection}{\itshape}{\itshape\thesubsubsection.}{.5em}{}
+	\end{comment}
+	% Word style - requires [explicit] and \usepackage{ulem}
+	\begin{comment}
+	\titleformat{\section}[block]{\filcenter}{\bfseries\thetitle.}{0.5em}{\textbf{#1}}
+	\titleformat{\subsection}{\normalfont}{\thesubsection.}{.5em}{\uline{#1}} 
+	\titleformat{\subsubsection}{\itshape}{\itshape\thesubsubsection.}{.5em}{\textit{#1}}
+	\end{comment}
+	% Numbers in margin
+	% \makeatletter\def\@seccntformat#1{\llap{\csname the#1\endcsname\quad}}\makeatother
+ 	% Depth
+	\setcounter{secnumdepth}{0}
+	\setcounter{tocdepth}{4}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Custom Header/Footer
+% \usepackage{lastpage} % gives \pageref{LastPage}
+	\DeclareRobustCommand{\finalpage}{\pageref{LastPage}} % protect from uc/lc
+% \usepackage{fancyhdr} % use with \pagestyle{fancy}
+\begin{comment}
+	\fancyhead[L]{} 
+	\fancyhead[C]{} 
+	\fancyhead[R]{} 
+	% \fancyfoot[L]{}
+	\fancyfoot[L]{\spacedallcaps{\scriptsize \mylastname: \myshorttitle}}  
+	\fancyfoot[C]{}
+	% \fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+	% \fancyfoot[C]{\textit{\thepage}}
+	% \fancyfoot[R]{}
+	\fancyfoot[R]{\spacedallcaps{\scriptsize Page \thepage\ of \finalpage}} 
+	% \setlength{\headheight}{13.6pt}
+	% \setlength{\headsep}{0.2in}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+\end{comment}
+% Or define a custom style - useful for maintaining different styles in one doc
+\begin{comment}
+\fancypagestyle{mycustom}
+	{
+		\fancyhead[L]{left} 
+		\fancyhead[C]{center} 
+		\fancyhead[R]{right} 
+		\fancyfoot[L]{left} 
+		\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+		\fancyfoot[R]{right} 
+	}
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Nice Fractions
+
+\begin{comment}
+\usepackage{nicefrac}
+	\def\half{\nicefrac{1}{2}}
+	\def\quarter{\nicefrac{1}{4}}
+	\def\threequarter{\nicefrac{3}{4}}
+	\def\third{\nicefrac{1}{3}}
+	\def\twothird{\nicefrac{2}{3}}
+	\def\eighth{\nicefrac{1}{8}}
+	\def\threeeighth{\nicefrac{3}{8}}
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Info Box
+
+\begin{comment}
+\usepackage[framemethod=tikz]{mdframed} 
+	\mdfdefinestyle{info}{ topline    = false,
+						   bottomline = false,
+						   leftline   = false,
+						   rightline  = false,
+						   nobreak,
+						   singleextra = {
+								\fill[black](P-|O)circle[radius=0.4em];
+								\node at(P-|O){\color{white}\scriptsize\bfseries i};
+								\draw[very thick](P-|O)++(0,-0.8em)--(O); } }
+	\newenvironment{info}[1][Info:]{ 
+		\medskip
+		\begin{mdframed}[style=info]
+			\noindent{\textbf{#1}} }
+	    {\end{mdframed}}
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% BibLaTeX
+
+\begin{comment}
+\usepackage[autocite = superscript, sortcites = true, backend = biber, style = custom]{biblatex}
+	\bibliography{refs} % bib file
+	\defbibenvironment{bibliography}
+		{\enumerate
+			{}
+			{\setlength{\leftmargin}{\bibhang}%
+			\setlength{\itemindent}{-\leftmargin}%
+			\setlength{\itemsep}{\bibitemsep}%
+			\setlength{\parsep}{\bibparsep}}}
+		{\endenumerate}
+		{\item}
+		% adds \citenum{refid} to just output '1'
+		\DeclareCiteCommand{\citenum}
+			{}
+			{\printfield{labelnumber}}
+			{}
+			{}
+		% Use with \printbibliography
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% NatBib
+
+% Sciences - Manual formatting, no bib/bst
+\begin{comment}
+\usepackage[super,comma,sort&compress]{natbib} 
+	\renewcommand{\bibnumfmt}[1]{#1.}
+	\newcommand{\myref}[6]{\bibitem{#1}#2 \textit{#3} \textbf{#4}, \textit{#5}, #6.}
+		% Use with:
+		% \bibliographystyle{plainnat}
+		% \begin{thebibliography}{200}
+		% \myref{heitlon}{Heitler, W.; London, F.}{Phys.\ Lett.}{1927}{44}{455--473}
+		% \end{thebibliography}
+\end{comment}
+
+% Sciences - use with e.g., jpt.bst
+\begin{comment}
+\usepackage[super,comma,sort&compress]{natbib}
+\renewcommand{\bibnumfmt}[1]{#1.}
+		% Use with:
+		% \bibliographystyle{jpt-all}
+		% \bibliography{sci-abbrev-sentence}
+\end{comment}
+
+% Lit - use with mla.bst
+\begin{comment}
+\usepackage{natbib}
+\bibpunct[ ]{(}{)}{,}{a}{}{;}
+\usepackage[normalem]{ulem}
+\newcommand{\citea}[1]{(\citeauthor{#1})}
+\newcommand{\citepg}[2]{(\citeauthor[#1]{#2})}
+\newcommand{\citeqtd}[2]{(qtd.\ in \citeauthor[#1]{#2})}
+		% Use with:
+		% \bibliographystyle{mla}
+		% \renewcommand{\refname}{Works Cited}
+		% \bibliography{lit}
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Author/Affiliation Block
+
+\begin{comment}
+\usepackage[affil-it]{authblk}
+	\renewcommand\Authfont{\small}
+	\author[1,2]{John Terhorst}
+	\author[2]{Erin Schwartz}
+	\author[2]{Heather Glasser}
+	\affil[1]{Division of Natural Sciences, Vanguard University, Costa Mesa, CA 92626}
+	\affil[2]{Department of Chemistry, University of Redlands, Redlands, CA, 92373}
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Hyperlinking, URLs, and Metadata
+
+% \begin{comment}
+\PassOptionsToPackage{hyphens}{xurl}
+\usepackage[pdftex]{hyperref}
+\hypersetup{ 
+	urlcolor = black,
+	colorlinks = false,
+	pdfborder = {0 0 0},
+	breaklinks = true,
+	bookmarksnumbered = true, 
+	pdfauthor = {},
+	pdftitle = {},
+	pdfsubject = {},
+	pdfkeywords = {},
+	pdfpagemode = UseThumbs}
+	\urlstyle{same}
+% \end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Better Crossreferencing 
+
+\begin{comment}
+\usepackage[capitalize,noabbrev,nameinlink]{cleveref}
+	\crefname{equation}{Eq.}{Eqs.}
+	\crefname{page}{page}{pages}
+	\creflabelformat{equation}{#2#1#3}
+	\newcommand{\crefrangeconjunction}{--}
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Chemistry Macros
+
+\begin{comment}
+\newcommand{\degc}{$^{\circ}$C}
+\newcommand{\myu}[1]{\text{\space#1}}
+\newcommand{\tild}{$\sim$}
+\newcommand{\delg}{$\Delta G$}
+\newcommand{\dgnot}{$\Delta G^{\circ}$}
+\newcommand{\dgfnot}{$\Delta G_{\text{f}}^{\circ}$}
+\newcommand{\dgrxn}{$\Delta G_{\text{rxn}}$}
+\newcommand{\dgnotrxn}{$\Delta G_{\text{rxn}}^{\circ}$}
+\newcommand{\delh}{$\Delta H$}
+\newcommand{\dhrxn}{$\Delta H_{\text{rxn}}$}
+\newcommand{\dhnotrxn}{$\Delta H_{\text{rxn}}^{\circ}$}
+\newcommand{\dhnot}{$\Delta H^{\circ}$}
+\newcommand{\dhf}{$\Delta H_{\text{f}}$}
+\newcommand{\dhfnot}{$\Delta H_{\text{f}}^{\circ}$}
+\newcommand{\dhfus}{$\Delta H_{\text{fus}}$}
+\newcommand{\dhvap}{$\Delta H_{\text{vap}}$}
+\newcommand{\dsnotrxn}{$\Delta S_{\text{rxn}}^{\circ}$}
+\newcommand{\dsnot}{$\Delta S^{\circ}$}
+\newcommand{\dels}{$\Delta S$}
+\newcommand{\essnot}{$S^{\circ}$}
+\newcommand{\electron}{e$^-$}
+\newcommand{\Ecell}{$\emf_{\text{cell}}$} 
+\newcommand{\Enotcell}{$\emf^{\circ}_{\text{cell}}$}
+\newcommand{\Enot}{$\emf^{\circ}$}
+\newcommand{\Ka}{$K_{\text{a}}$}
+\newcommand{\Kb}{$K_{\text{b}}$}
+\newcommand{\Ksp}{$K_{\text{sp}}$}
+\newcommand{\Keq}{$K_{\text{eq}}$}
+\newcommand{\Kp}{$K_P$}
+\newcommand{\Kc}{$K_{\text{c}}$}
+\newcommand{\pKa}{p$K_{\text{a}}$}
+\newcommand{\pKb}{p$K_{\text{b}}$}
+\newcommand{\dipole}{+\hspace*{-3mm}$\longrightarrow$}
+\newcommand{\cmi}{cm$^{-1}$}
+\newcommand{\cd}{$\cdot$}
+\newcommand{\ub}[2]{$\underbrace{\text{#1}}_{\text{#2}}$} % usage: \ub{top}{bottom}
+\newcommand{\us}[2]{$\underset{\text{#2}}{\text{#1}}$}    % usage: \us{top}{bottom}
+\newcommand{\ffbox}[1]{\fbox{\fbox{\parbox{.95\textwidth}{\centering #1}}}}
+\newcommand{\dd}{\end{document}}
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Titling
+
+\title{\mydoctitle}
+% \title{\bfseries\mydoctitle}
+% \title{\sffamily\bfseries\mydoctitle}
+\author{\myname}
+\date{\today}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\begin{document}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Front Matter
+
+\begin{comment}
+\pagestyle{empty}
+\hypersetup{pageanchor=false}
+	\maketitle
+	\thispagestyle{empty}
+	\begin{abstract}
+		Here's to the crazy ones---the misfits, the rebels, the troublemakers, the round pegs in the square holes, the ones who see things differently---they're not fond of rules, and they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them, but the only thing you can't do is ignore them, because they change things. They push the human race forward, and while some may see them as the crazy ones, we see genius, because the people who are crazy enough to think that they can change the world are the ones who do. (Rob Siltanen)
+	\end{abstract}
+	\tableofcontents
+\newpage
+\hypersetup{pageanchor=true}
+\pagestyle{plain}
+\setcounter{page}{1}
+
+\begin{comment}
+
+% LOF/LOT
+
+\pagenumbering{roman}
+	\addcontentsline{toc}{section}{List of Figures}
+	\listoffigures
+\newpage
+	\addcontentsline{toc}{section}{List of Tables}
+	\listoftables
+\newpage
+
+% \end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Acknowledgments
+
+\begin{comment}
+
+\addcontentsline{toc}{section}{Acknowledgments}
+\section*{Acknowledgments}
+
+Thank you.
+
+\newpage
+
+% \end{comment}
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Choose main pagestyle if not plain
+
+% \pagestyle{fancy}
+% \pagestyle{mycustom}
+% \pagestyle{myheadings}
+%	\markboth{left}{\textnormal{\myshortname}}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Main Text
+
+\hspace*{-15pt}
+\begin{minipage}[t]{0.3\textwidth}
+
+\color{MidnightBlue}\vspace*{-6pt}
+
+\scriptsize
+
+\spacedallcaps{From}
+
+\bigskip
+
+{\normalsize\bfseries
+\spacedallcaps{Cadmium A.}\\[.5em]
+\spacedallcaps{Brimblecombe, PhD}}
+
+\bigskip
+
+\spacedallcaps{123 Address Ave}\\[.5em]
+\spacedallcaps{City, CA 90890}
+
+\bigskip
+
+\spacedallcaps{123 456 8964 office}\\[.5em]
+\spacedallcaps{134 453 5435 mobile}
+
+\bigskip
+
+\spacedallcaps{me{\normalsize @}email.com}
+
+
+\end{minipage}%
+%
+\begin{minipage}[t]{0.675\textwidth}\setlength{\parskip}{11pt}\setstretch{1.22}
+
+\raggedright
+
+\today
+
+George Falkenberg\\
+Falkenberg, Fester, and Funk LLP\\
+1252 W. 83rd Street\\
+New York, NY 10012
+
+Re: {\bfseries Our Meeting}
+
+Here's to the crazy ones---the misfits, the rebels, the troublemakers, the round pegs in the square holes, the ones who see things differently---they're not fond of rules, and they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them, but the only thing you can't do is ignore them, because they change things. 
+
+They push the human race forward, and while some may see them as the crazy ones, we see genius, because the people who are crazy enough to think that they can change the world are the ones who do.
+
+Please do not hesitate to contact me if you have any questions.
+
+\vspace*{1.5cm}
+
+CB
+
+
+\end{minipage}
+
+
+
+
+
+
+
+
+
+
+
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% References 
+
+\begin{comment}
+\newpage
+\addcontentsline{toc}{section}{References}
+\printbibliography
+\end{comment}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+\end{document}
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+% Notes
+
+% ==========================================================================================
+% ==========================================================================================
+% ==========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
